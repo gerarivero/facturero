@@ -33,5 +33,5 @@ class Factura(models.Model):
 		(FC, 'Factura C')
 	)
 
-	tipo= models.Charfield(max_length=1, choices=tipo_factura, default=FB)
+	tipo= models.CharField(max_length=1, choices=tipo_factura, default=FB)
 	detalle= models.CharField(max_length=200)
