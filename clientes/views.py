@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+from .models import Cliente
 
 def index(request):
-	return HttpResponse('Clientes, hola loco')
+	lista_clientes= Cliente.objects.order_by('nombre')
+	context= {'lista_clientes': lista_clientes}
+	return render(request, 'clientes/contactos.html', context)
