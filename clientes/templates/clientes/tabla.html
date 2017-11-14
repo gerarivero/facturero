@@ -1,0 +1,122 @@
+{% load staticfiles %}
+
+    
+
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="author" content="Gerardo Rivero<gerarivero90@gmail.com>"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 	
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+		<link rel="stylesheet" href="{% static 'css/estilo_tabla.css' %}">
+
+		<script src="{% static 'js/buscar.js' %}"></script>
+	
+	</head>
+		
+	<body>
+		<nav class="navbar navbar-default visible-xs">
+  			<div class="container-fluid">
+    			<div class="navbar-header" > <!-- el sidebar se colapsa en pantallas chicas y se convierte en un header -->
+      				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>                        
+      				</button>
+      				
+      				<a class="navbar-brand" style="color:white" href="#">SYSCOX</font></a>
+    			</div>
+    		
+    			<div class="collapse navbar-collapse" id="myNavbar">
+      				<ul class="nav navbar-nav">
+        				<!--TODO <li><a href="#">INICIO</a></li> -->
+        				<li><a href="#">CLIENTES</a></li>
+        				<li><a href="#">PROVEEDORES</a></li>
+        				<!--TODO <li><a href="#">USUARIO</a></li> -->
+      				</ul>
+    			</div>
+  			</div>
+		</nav>
+
+		<div class="content-fluid" id="pagina">
+			
+			<div class="raw content">
+				
+				<div class="col-md-2 sidenav hidden-xs" id="left-bar"> 	<!-- aca va la sidevar -->
+					
+					<h2 class="text-center"  style="color:white"> SYSCOX </h2>
+      				<ul class="nav nav-pills nav-stacked" id="pila" ><br>
+        			<!--TODO 	<li><a style="color:grey" href="#section1">INICIO</a></li> -->
+        				<li id="clientes"><a href="#section3">CLIENTES</a></li>
+        				<li id="proveedores"><a href="#section3">PROVEEDORES</a></li>
+        			<!--TODO <li><a style="color:grey" href="#section2">USUARIO</a></li>		 -->				
+				
+				</div>
+
+				<div class="col-md-4" id="center-bar">	<!-- aca va la barra de busqueda y la tabla con filtros -->
+					
+					<div class="input-group" id="barra_busqueda">
+    					<span class="input-group-addon center-bar"><i class="glyphicon glyphicon-search"></i></span>
+    			
+    					<input type="text" id="un_cliente"  placeholder="Buscar por CUIL, Nombre o Apellido" onkeyup="buscar()" title="Ingrese un CUIL" class="form-control">
+  					</div>
+					
+					<div id="tabla"> <!-- contenedor de la tabla-->
+
+						<table id="tabla_clientes" class="display">	<!-- creo la tabla -->
+						
+							<tr class="header">
+							
+								<th style="width: 30%;"> CUIL </th>
+								<th style="width: 25%;"> Nombre </th>
+								<th style="width: 45%;"> Razon Social</th>
+
+							</tr>
+							
+							{% for cliente in lista_clientes %}
+							<tr id="filas" onclick="devolver_cuil(this)"> 
+								
+								<td>{{cliente.cuil}}</td>
+								<td>{{cliente.nombre}}</td>
+								<td>{{cliente.razon_social}}</td>
+								
+							</tr>
+							{% endfor %}
+
+						</table>
+					</div>
+					
+					<div id="nuevo-editar"> <!-- contenedor botones editar y agregar cliente -->
+						<button ></button>
+					</div>
+				</div>
+
+				<div class="col-md-6" id="right-bar">	<!-- aca va la seccion de detalles de contacto, facturas y cobros -->
+					
+					<div class="btn-group btn-group-justified" id="barra_detalles">
+    					<a href="#" class="btn btn-primary">Contacto</a>
+    					<a href="#" class="btn btn-primary">Facturas</a>
+    					<a href="#" class="btn btn-primary">Cobros</a>
+  					</div>
+  					<div id="contacto">
+  						<p id="demo"></p>
+  					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</body>
+</html>

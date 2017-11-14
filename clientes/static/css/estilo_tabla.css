@@ -1,0 +1,71 @@
+#barra_busqueda {
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 20px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+#tabla_clientes {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+    font-size: 14px; /* Increase font-size */
+}
+
+#tabla_clientes th, #tabla_clientes td {
+    text-align: left; /* Left-align text */
+    border: 1px solid #ddd;
+    padding: 1%;
+}
+
+#tabla_clientes tr, #tabla_clientes tr:hover {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+
+}
+
+#tabla_clientes tr.header{
+    background-color: #337ab7;  /*color de la cabecera de la tabla*/
+    color:#fff;
+} 
+
+
+#filas:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #4dd7fa;
+}
+
+#barra_detalles {
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 20px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+}
+
+.sidenav {
+    background-color: #021f54;
+    height: 100vh;
+    padding: 0;
+}
+
+#clientes{
+    border-top: 1px solid #5c5050;
+  /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #5c5050;
+}
+
+#proveedores{
+    border-bottom: 1px solid #5c5050;
+}
+    
+/* On small screens, set height to 'auto' for the grid */
+    
+@media screen and (max-width: 767px) {   
+  .row.content {height: auto;}   
+}
+
+.navbar {
+    background-color: #021f54;
+}   
